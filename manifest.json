@@ -5,5 +5,51 @@
 	"version": "1.0",
 	"action": {
 		"default_popup": "page.html"
-	}
+	},
+        "content_scripts": [
+   	 {
+      	"js": ["scripts/content.js"],
+      	"matches":[
+	       "https://developer.chrome.com/docs/extensions/*",
+                "https://developer.chrome.com/docs/webstore/*",
+        	"https://developer.chrome.com/docs/workbox/*",
+		"*://*/*"
+
+	]
+    }
+  ],
+   "icons": {
+    "16": "images/readtime/icon-16.png",
+    "32": "images/readtime/icon-32.png",
+    "48": "images/readtime/icon-48.png",
+    "128": "images/readtime/icon-128.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_icon": {
+      "16": "images/fodcusmode/icon-16.png",
+      "32": "images/focusmode/icon-32.png",
+      "48": "images/focusmode/icon-48.png",
+      "128": "images/focusmode/icon-128.png"
+    }
+  },
+  "permissions": ["activeTab", "scripting", "tabGroups"],
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+U",
+        "mac": "Command+U"
+      }
+    }
+  },
+"action": {
+    "default_popup": "popup/popup.html"
+},
+"host_permissions": [
+    "https://developer.chrome.com/*"
+  ]
+
+
 }
